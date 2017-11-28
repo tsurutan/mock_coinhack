@@ -7,6 +7,15 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 namespace :deploy do
+  desc "Copying database.yml"
+  task :config_database do
+    on roles(:all) do
+      within release_path do
+        db_config_file = "/var/www/mock_coinhack/shared/database.yml"
+        execute :cp, "#{db_config_file} ./config/database.yml"
+      end
+    end
+  end
   desc "Make sure local git is in sync with remote."
   task :confirm do
     on roles(:app) do
@@ -20,6 +29,16 @@ namespace :deploy do
     end
   end
 
+  desc "Set Environment Values"
+  task :set_env_values do
+    on roles(:all) do
+      within release_path do
+        env_config = "/var/www/mock_coinhack/shared/.env"
+        execute :cp, "#{env_config} ./.env"
+      end
+    end
+  end
+  
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
@@ -34,5 +53,7 @@ namespace :deploy do
     end
   end
 
-  before :starting, :confirm
+  before "deploy:updated", "deploy:config_database"
+  before "deploy:updated", "deploy:set_env_values"
+  before "deploy:updated", "deploy:printenv"
 end
