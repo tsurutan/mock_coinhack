@@ -2,9 +2,9 @@
 lock "3.8.1"
 
 set :application, "mock_coinhack"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :repo_url, "git@github.com:tsurutan/mock_coinhack.git"
 
-set :deploy_to, '/home/ユーザー名/アプリ名/'
+set :deploy_to, '/var/www/mock_coinhack/'
 
 set :keep_releases, 5
 set :ssh_options, :port => "ポート番号"
