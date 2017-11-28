@@ -1,0 +1,248 @@
+.container {
+  text-align: center;
+}
+
+.box_left {
+  display: inline-block;
+  vertical-align: top;
+  width: 650px;
+}
+
+.box_right {
+  display: inline-block;
+  width: 300px;
+}
+
+hr {
+  color: rgba(151, 151, 151, 0.3);
+}
+
+// ======================== 概要 =========================
+
+.overview_card {
+  background: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 20px;
+  vertical-align: top;
+  margin-top: 36px;
+  .icon {
+    width: 90px;
+    height: 90px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .message {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-left: 20px;
+    width: 330px;
+  }
+  .title {
+    font-family: HiraginoSans-W6;
+    font-size: 24px;
+    margin-top: 10px;
+    height: 15px;
+  }
+  .description {
+    font-family: HiraginoSans-W6;
+    font-size: small;
+  }
+  .home_button {
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 14px;
+    background: #f6a623;
+    padding: 10px 15px 10px 15px;
+    text-decoration: none;
+    margin-top: 40px;
+    margin-left: 10px;
+    &:hover {
+      background: #f09400;
+      text-decoration: none;
+    }
+  }
+  .border {
+    border: 0.5px solid rgba(151, 151, 151, 0.3);
+    margin: 10px auto auto;
+  }
+  table {
+    border: 1px solid rgba(151, 151, 151, 0.3);
+    border-collapse: collapse;
+    margin: 40px auto auto;
+  }
+  td, th {
+    border: 1px solid rgba(151, 151, 151, 0.3);
+    border-collapse: collapse;
+    margin-left: 40px;
+    text-align: left;
+  }
+  th {
+    padding: 3px;
+    width: 80px;
+    height: 25px;
+    color: #ffffff;
+    font-size: small;
+  }
+  td {
+    padding: 3px;
+    width: 80px;
+    height: 25px;
+    font-size: small;
+  }
+  th {
+    background: #f6a623;
+  }
+  .fade_out {
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// ======================== Twitterフィード =========================
+
+.twitter_card {
+  vertical-align: top;
+  background: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  height: 500px;
+  margin-left: 10px;
+  margin-top: 36px;
+}
+
+// =========================== 詳細 =================================
+
+.detail_card {
+  background: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  margin-top: 20px;
+  padding: 10px;
+  li {
+    list-style: none;
+  }
+  .tab {
+    overflow: hidden;
+    font-weight: bold;
+  }
+  .tab li {
+    padding: 5px 25px;
+    float: left;
+    margin-right: 1px;
+  }
+  .tab li.select {
+    border-bottom: solid 3px #f6a623;
+  }
+  .content div{
+  }
+  .hide {
+    display: none;
+  }
+  table {
+    border: 1px solid rgba(151, 151, 151, 0.3);
+    border-collapse: collapse;
+    margin: 10px auto auto;
+  }
+  td, th {
+    border: 1px solid rgba(151, 151, 151, 0.3);
+    border-collapse: collapse;
+    text-align: left;
+  }
+  th {
+    padding: 3px;
+    width: 200px;
+    height: 25px;
+    color: #ffffff;
+    font-size: small;
+    background: #f6a623;
+  }
+  td {
+    padding: 3px;
+    width: 110px;
+    height: 25px;
+    font-size: small;
+  }
+  .title {
+    text-align: left;
+    font-size: 14px;
+  }
+  .description {
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: left;
+  }
+  .card_border {
+    border-bottom: 1px solid rgba(151, 151, 151, 0.3);
+  }
+  .icon {
+    height: 70px;
+    width: 70px;
+    float: left;
+    margin-top: 15px;
+  }
+  .list {
+    display: inline-block;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.3);
+  }
+  .exchange_title {
+    font-size: 20px;
+    line-height: 10px;
+    float: left;
+    margin-left: 40px;
+  }
+  .overview {
+    font-size: 14px;
+  }
+}
+
+// =========================== 関連通貨 ==============================
+.coin_card {
+  vertical-align: top;
+  background: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-top: 20px;
+  padding: 20px;
+  .card_border {
+    border-bottom: 1px solid rgba(151, 151, 151, 0.3);
+  }
+  .title {
+    text-align: left;
+    margin: 10px;
+    font-size: 14px;
+  }
+  .list {
+    display: inline-block;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.3);
+  }
+  .icon {
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin-top: 10px;
+  }
+  .coin_title {
+    font-size: 20px;
+    line-height: 100px;
+  }
+}

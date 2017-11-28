@@ -1,0 +1,35 @@
+# Ignore configuration files.
+/config/database.yml
+config/environments/development.local.rb
+*~
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore bundler gems.
+vendor/bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+dump.rdb
+
+# Ignore other unnecessary files.
+.DS_Store
+.idea
+*.swp
+erd.pdf
+
+# environments setting file
+.env
+
+# Ignore uploaded images
+/public/uploads
+
+# Ignore Byebug command history file.
+.byebug_history
+
+node_modules/
+
+tags

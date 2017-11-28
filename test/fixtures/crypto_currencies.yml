@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  overview: MyText
+  description: MyText
+  symbol: MyString
+  purchasable_currency: MyString
+  released_at: 2017-11-26
+  white_paper: MyString
+  blog: MyString
+  fund_raised_amount: MyString
+  initial_price: MyString
+  platform: MyString
+  token_upper_limit: MyString
+  token_sale_supply_amount: MyString
+  key_name: MyString
+
+two:
+  name: MyString
+  overview: MyText
+  description: MyText
+  symbol: MyString
+  purchasable_currency: MyString
+  released_at: 2017-11-26
+  white_paper: MyString
+  blog: MyString
+  fund_raised_amount: MyString
+  initial_price: MyString
+  platform: MyString
+  token_upper_limit: MyString
+  token_sale_supply_amount: MyString
+  key_name: MyString

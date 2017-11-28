@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @crypto_currency.name
+%p
+  %b Overview:
+  = @crypto_currency.overview
+%p
+  %b Description:
+  = @crypto_currency.description
+%p
+  %b Symbol:
+  = @crypto_currency.symbol
+%p
+  %b Purchasable currency:
+  = @crypto_currency.purchasable_currency
+%p
+  %b Released at:
+  = @crypto_currency.released_at
+%p
+  %b White paper:
+  = @crypto_currency.white_paper
+%p
+  %b Blog:
+  = @crypto_currency.blog
+%p
+  %b Fund raised amount:
+  = @crypto_currency.fund_raised_amount
+%p
+  %b Initial price:
+  = @crypto_currency.initial_price
+%p
+  %b Platform:
+  = @crypto_currency.platform
+%p
+  %b Token upper limit:
+  = @crypto_currency.token_upper_limit
+%p
+  %b Token sale supply amount:
+  = @crypto_currency.token_sale_supply_amount
+%p
+  %b Key name:
+  = @crypto_currency.key_name
+
+= link_to 'Edit', edit_crypto_currency_path(@crypto_currency)
+\|
+= link_to 'Back', crypto_currencies_path

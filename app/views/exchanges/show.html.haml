@@ -1,0 +1,50 @@
+%div.container
+  %div.box_left
+    %div.overview_card
+      %div
+        = image_tag @exchange.icon_image.url, :class => 'icon'
+        .message
+          %p.title
+            = @exchange.name
+          %p.description
+            = @exchange.overview
+        %a.home_button.ripple{:href => 'https://coincheck.com/ja/'}
+          = t('.homepage')
+      %p.border
+      %table
+        %tbody
+          %tr
+            %th マーケット
+            %th 出来高(24H)
+            %th Bid
+            %th Ask
+            %th スプレッド
+          %try6tt5frrefd
+            %td.market BTC/JPY
+            %td.volume
+            %td.bid
+            %td.ask
+            %td.spread
+    %div.detail_card
+      %ul.tab
+        %li.select 詳細
+        %li 取扱通貨
+      %ul.content
+        %div.main
+          = render 'detail'
+        %div.main.hide
+          = render 'crypto_currency'
+  %div.box_right
+    %div.twitter_card
+      %a.twitter-timeline{:href => "https://twitter.com/coincheckjp?ref_src=twsrc%5Etfw", "height" => '400px', "data-tweet-limit" => "1",  }
+      %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}
+    %div.coin_card
+      %h3.title 関連取引所
+      %ul
+        .card_border
+        - @exchanges.each do |exchange|
+          %li.list{:href => exchange.key_name}
+            %div
+              = image_tag exchange.icon_image.url, :class => 'icon'
+              %p.coin_title
+                = exchange.name

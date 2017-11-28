@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  icon: MyString
+  overview: MyString
+  description: MyString
+  type: 
+  credit_transaction: MyString
+  futures_transaction: MyString
+
+two:
+  name: MyString
+  icon: MyString
+  overview: MyString
+  description: MyString
+  type: 
+  credit_transaction: MyString
+  futures_transaction: MyString

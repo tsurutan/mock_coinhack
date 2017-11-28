@@ -1,0 +1,59 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.header {
+    background:#ffffff;
+    height:65px;
+}
+.header p {
+    border: 0.5px solid rgba(151, 151, 151, 0.30);
+    width: 100%;
+    margin-top: 10px;
+}
+.header .icon {
+    width: 121px;
+    height: 37px;
+    margin-left: 77px;
+    margin-top: 15px;
+}
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple .rp-effect {/*エフェクト*/
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.35;/*波紋の濃さ*/
+    transform: scale(0);
+    background: #FFF;/*波紋色*/
+    animation: ripple 700ms;
+    pointer-events: none;
+}
+
+@-webkit-keyframes ripple {
+    to {
+        opacity: 0;
+        transform: scale(2.0);
+    }
+}
+
+@keyframes ripple {
+    to {
+        opacity: 0;
+        transform: scale(2.0);
+    }
+}

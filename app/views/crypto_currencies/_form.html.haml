@@ -1,0 +1,52 @@
+= form_for @crypto_currency do |f|
+  - if @crypto_currency.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@crypto_currency.errors.count, "error")} prohibited this crypto_currency from being saved:"
+      %ul
+        - @crypto_currency.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :overview
+    = f.text_area :overview
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :symbol
+    = f.text_field :symbol
+  .field
+    = f.label :purchasable_currency
+    = f.text_field :purchasable_currency
+  .field
+    = f.label :released_at
+    = f.date_select :released_at
+  .field
+    = f.label :white_paper
+    = f.text_field :white_paper
+  .field
+    = f.label :blog
+    = f.text_field :blog
+  .field
+    = f.label :fund_raised_amount
+    = f.text_field :fund_raised_amount
+  .field
+    = f.label :initial_price
+    = f.text_field :initial_price
+  .field
+    = f.label :platform
+    = f.text_field :platform
+  .field
+    = f.label :token_upper_limit
+    = f.text_field :token_upper_limit
+  .field
+    = f.label :token_sale_supply_amount
+    = f.text_field :token_sale_supply_amount
+  .field
+    = f.label :key_name
+    = f.text_field :key_name
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exchange: one
+  crypto_currency: one
+
+two:
+  exchange: two
+  crypto_currency: two
