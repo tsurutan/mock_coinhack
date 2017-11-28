@@ -3,6 +3,7 @@ set :repo_url,        'git@github.com:tsurutan/mock_coinhack.git'
 set :application,     'mock_coinhack'
 set :user,            'deploy'
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
