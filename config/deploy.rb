@@ -2,6 +2,7 @@ lock '3.8.1'
 set :repo_url,        'git@github.com:tsurutan/mock_coinhack.git'
 set :application,     'mock_coinhack'
 set :user,            'deploy'
+set :rbenv_type, :user
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
