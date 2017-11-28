@@ -1,29 +1,29 @@
-# config valid only for current version of Capistrano
-lock "3.8.1"
+lock '3.8.1'
+set :repo_url,        'git@github.com:tsurutan/mock_coinhack.git'
+set :application,     'mock_coinhack'
+set :user,            'deploy'
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :application, "mock_coinhack"
-set :repo_url, "git@github.com:tsurutan/mock_coinhack.git"
-
-set :deploy_to, '/var/www/mock_coinhack/'
-
-set :keep_releases, 5
-set :ssh_options, :port => "ポート番号"
-
-set :rbenv_type, :system # :system or :user
-set :rbenv_ruby, '2.3.1'#rubyのバージョン
-
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-set :rbenv_roles, :all # default value
-
-set :linked_dirs, %w{bin log tmp/backup tmp/pids tmp/cache tmp/sockets vendor/bundle}
-set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
-
-set :bundle_jobs, 4
-
-after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
+  desc "Make sure local git is in sync with remote."
+  task :confirm do
+    on roles(:app) do
+      puts "This stage is '#{fetch(:stage)}'. Deploying branch is '#{fetch(:branch)}'."
+      puts 'Are you sure? [y/n]'
+      ask :answer, 'n'
+      if fetch(:answer) != 'y'
+        puts 'deploy stopped'
+        exit
+      end
+    end
   end
+
+  desc 'Initial Deploy'
+  task :initial do
+    on roles(:app) do
+      invoke 'deploy'
+    end
+  end
+
+  before :starting, :confirm
 end

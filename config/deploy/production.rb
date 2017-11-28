@@ -38,10 +38,10 @@ role :app, [server_ip]
 role :web, [server_ip]
 role :db,  [server_ip]
 
-server server_ip, user: 'ec2-user', roles: %w{app db web}
+server server_ip, user: 'deploy', roles: %w{app db web}
 
 set :ssh_options, {
-    keys: %w(~/.ssh/mock_coinhack.pem),
+    keys: %w(~/.ssh/mock_coinhack),
     forward_agent: true,
     auth_methods: %w(publickey),
 }
