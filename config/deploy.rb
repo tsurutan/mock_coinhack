@@ -16,6 +16,17 @@ namespace :deploy do
       end
     end
   end
+
+  desc "Set Environment Values"
+  task :set_env_values do
+    on roles(:all) do
+      within release_path do
+        env_config = "/var/www/mock_coinhack/shared/.env"
+        execute :cp, "#{env_config} ./.env"
+      end
+    end
+  end
+
   desc "Make sure local git is in sync with remote."
   task :confirm do
     on roles(:app) do
@@ -29,16 +40,6 @@ namespace :deploy do
     end
   end
 
-  desc "Set Environment Values"
-  task :set_env_values do
-    on roles(:all) do
-      within release_path do
-        env_config = "/var/www/mock_coinhack/shared/.env"
-        execute :cp, "#{env_config} ./.env"
-      end
-    end
-  end
-  
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
@@ -55,5 +56,4 @@ namespace :deploy do
 
   before "deploy:updated", "deploy:config_database"
   before "deploy:updated", "deploy:set_env_values"
-  before "deploy:updated", "deploy:printenv"
 end
