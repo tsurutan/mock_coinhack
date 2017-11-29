@@ -47,6 +47,7 @@ gem 'rabl-rails'
 gem 'paperclip'
 gem 'friendly_id', '~> 5.1.0'
 gem 'therubyracer', '~> 0.12.3'
+gem 'dotenv-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
