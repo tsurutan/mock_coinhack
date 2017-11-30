@@ -43,7 +43,7 @@
       %ul
         .card_border
         - @exchanges.each do |exchange|
-          %li.list{:href => exchange.key_name}
+          %li.list{:href => exchange.slug}
             %div
               = image_tag exchange.icon_image.url, :class => 'icon'
               %p.coin_title
