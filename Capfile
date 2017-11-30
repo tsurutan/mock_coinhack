@@ -2,7 +2,7 @@ require "capistrano/setup"
 require "capistrano/deploy"
 require "capistrano/scm/git"
 require "capistrano/bundler"
-require "capistrano/rails/migrations"
+require 'capistrano/rails'
 require 'capistrano/puma'
 require 'capistrano/rbenv'
 install_plugin Capistrano::Puma
