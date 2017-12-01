@@ -1,3 +1,106 @@
 // Place all the styles related to the crypto_currencies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$coinhack_orange: #F6A623;
+$border_color: rgba(0, 0, 0, 0.2);
+.coin_overview_card {
+  background: #ffffff;
+  box-shadow: 0 2px 4px 0 $border_color;
+  border-radius: 3px;
+  padding: 20px;
+  vertical-align: top;
+  margin-top: 36px;
+  height: 500px;
+  .icon {
+    width: 90px;
+    height: 90px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .message {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-left: 20px;
+    width: 330px;
+  }
+  .title {
+    font-family: HiraginoSans-W6;
+    font-size: 24px;
+    margin-top: 10px;
+    height: 15px;
+  }
+  .description {
+    font-family: HiraginoSans-W6;
+    font-size: small;
+  }
+  .home_button {
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 14px;
+    background: $coinhack_orange;
+    padding: 10px 15px 10px 15px;
+    text-decoration: none;
+    margin-top: 40px;
+    margin-left: 10px;
+    &:hover {
+      background: #f09400;
+      text-decoration: none;
+    }
+  }
+  .border {
+    border: 0.5px solid rgba(151, 151, 151, 0.3);
+    margin: 10px auto auto;
+  }
+}
+
+.compare_button_container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  .compare_button {
+    vertical-align: top;
+    border-radius: 10px;
+    font-family: Arial;
+    color: black;
+    font-weight: bold;
+    margin-right: 14px;
+    font-size: 12px;
+    padding: 4px 16px 4px 16px;
+    text-decoration: none;
+  }
+  .compare_button.selected {
+    background: #f09400;
+    color: white;
+  }
+  .compare_spinner {
+    margin-top: 200px;
+  }
+}
+
+// ======================== 仮想通貨 =========================
+
+.coin_card {
+  vertical-align: top;
+  background: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-top: 36px;
+  .coin_icon {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+}

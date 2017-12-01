@@ -1,48 +1,62 @@
-%p#notice= notice
+%div.container
+  %div.box_left
+    %div.coin_overview_card
+      %div
+        = image_tag @crypto_currency.icon_image.url, :class => 'icon'
+        .message
+          %p.title
+            = @crypto_currency.name
+          %p.description
+            = @crypto_currency.overview
+        %a.home_button.ripple{:href => 'https://coincheck.com/ja/'}
+          = t('.homepage')
+      %p.border
+      .compare_button_container
+        .compare_button.selected#minute
+          = "1分"
+        .compare_button#hour
+          = "1時間"
+        .compare_button#day
+          = "1日"
+      .chart_container
+        .compare_spinner
+          = render 'shared/spinner'
+        %canvas#myChart{:height => "200", :width => "400"}
+    %div.detail_card
+      %ul.tab
+        %li.select 詳細
+        %li ICO
+        %li 取扱通貨
+      %ul.content
+        %div.main
+          = render 'detail'
+        %div.main
+          = render 'ico'
+        %div.main.hide
+          = render 'crypto_currency'
 
-%p
-  %b Name:
-  = @crypto_currency.name
-%p
-  %b Overview:
-  = @crypto_currency.overview
-%p
-  %b Description:
-  = @crypto_currency.description
-%p
-  %b Symbol:
-  = @crypto_currency.symbol
-%p
-  %b Purchasable currency:
-  = @crypto_currency.purchasable_currency
-%p
-  %b Released at:
-  = @crypto_currency.released_at
-%p
-  %b White paper:
-  = @crypto_currency.white_paper
-%p
-  %b Blog:
-  = @crypto_currency.blog
-%p
-  %b Fund raised amount:
-  = @crypto_currency.fund_raised_amount
-%p
-  %b Initial price:
-  = @crypto_currency.initial_price
-%p
-  %b Platform:
-  = @crypto_currency.platform
-%p
-  %b Token upper limit:
-  = @crypto_currency.token_upper_limit
-%p
-  %b Token sale supply amount:
-  = @crypto_currency.token_sale_supply_amount
-%p
-  %b Key name:
-  = @crypto_currency.key_name
-
-= link_to 'Edit', edit_crypto_currency_path(@crypto_currency)
-\|
-= link_to 'Back', crypto_currencies_path
+  %div.box_right
+    %div.twitter_card
+      %a.twitter-timeline{:href => "https://twitter.com/coincheckjp?ref_src=twsrc%5Etfw", "height" => '400px', "data-tweet-limit" => "1",  }
+      %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}
+    %div.coin_card
+      %h3.title 関連取引所
+      %ul
+        .card_border
+        - @crypto_currencies.each do |crypto_currency|
+          %li.list{:href => crypto_currency.slug}
+            %div
+              = image_tag crypto_currency.icon_image.url, :class => 'coin_icon'
+              %p.coin_title
+                = crypto_currency.name
+  .article_container
+    %p.card_title
+      = @crypto_currency.name + "に関する記事"
+    .article
+      - [1, 2, 3, 4].each do |crypto_currency|
+        %div.article_card
+          = image_tag 'bitcoinjpjj', :class => 'image'
+          %p.title
+            = @crypto_currency.name
+          %p.description
+            = @crypto_currency.overview

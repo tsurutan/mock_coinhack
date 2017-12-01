@@ -1,7 +1,7 @@
 %ul
   .card_border
-  - @exchange.crypto_currencies.each do |exchange|
-    %li.list{:href => crypto_currency_path(exchange)}
+  - @crypto_currency.exchanges.each do |exchange|
+    %li.list{:href => exchange_path(exchange)}
       %p
         = image_tag exchange.icon_image.url, :class => 'icon'
       .message

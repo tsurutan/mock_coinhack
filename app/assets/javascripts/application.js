@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require jquery
 //= require_tree .
+//= require Chart.min
 
 (function() {
     var ripple, ripples, RippleEffect,loc, cover, coversize, style, x, y, i, num;

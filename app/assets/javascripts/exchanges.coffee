@@ -29,8 +29,8 @@ $ ->
     $(selector).text(text)
 
   $ ->
-    setInterval update, 3000
-    callTickerApi()
+#    setInterval update, 3000
+#    callTickerApi()
     return
 
   $ ->

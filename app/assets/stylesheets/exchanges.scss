@@ -1,3 +1,7 @@
+$coinhack_orange: #F6A623;
+$border_color: rgba(0, 0, 0, 0.2);
+
+
 .container {
   text-align: center;
 }
@@ -21,7 +25,7 @@ hr {
 
 .overview_card {
   background: #ffffff;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px 0 $border_color;
   border-radius: 3px;
   padding: 20px;
   vertical-align: top;
@@ -48,7 +52,7 @@ hr {
   }
   .description {
     font-family: HiraginoSans-W6;
-    font-size: small;
+    font-size: smaller;
   }
   .home_button {
     display: inline-block;
@@ -57,7 +61,7 @@ hr {
     font-family: Arial;
     color: #ffffff;
     font-size: 14px;
-    background: #f6a623;
+    background: $coinhack_orange;
     padding: 10px 15px 10px 15px;
     text-decoration: none;
     margin-top: 40px;
@@ -96,7 +100,7 @@ hr {
     font-size: small;
   }
   th {
-    background: #f6a623;
+    background: $coinhack_orange;
   }
   .fade_out {
     animation: fadeIn 2s ease 0s 1 normal;
@@ -120,9 +124,16 @@ hr {
   background: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  height: 500px;
+  height: 600px;
   margin-left: 10px;
   margin-top: 36px;
+  .twitter_icon {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 30px;
+  }
 }
 
 // =========================== 詳細 =================================
@@ -146,7 +157,7 @@ hr {
     margin-right: 1px;
   }
   .tab li.select {
-    border-bottom: solid 3px #f6a623;
+    border-bottom: solid 3px $coinhack_orange;
   }
   .content div{
   }
@@ -169,7 +180,7 @@ hr {
     height: 25px;
     color: #ffffff;
     font-size: small;
-    background: #f6a623;
+    background: $coinhack_orange;
   }
   td {
     padding: 3px;
@@ -190,10 +201,10 @@ hr {
     border-bottom: 1px solid rgba(151, 151, 151, 0.3);
   }
   .icon {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     float: left;
-    margin-top: 15px;
+    margin-top: 20px;
   }
   .list {
     display: inline-block;
@@ -207,8 +218,21 @@ hr {
     float: left;
     margin-left: 40px;
   }
-  .overview {
-    font-size: 14px;
+  .message {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    width: 400px;
+    height: 100px;
+  }
+  .list_coin_title {
+    font-family: HiraginoSans-W6;
+    font-size: 18px;
+    margin-bottom: -20px;
+  }
+  .description {
+    font-family: HiraginoSans-W6;
+    font-size: smaller;
   }
 }
 
@@ -246,3 +270,39 @@ hr {
     line-height: 100px;
   }
 }
+
+// ===============================記事=================================
+
+.article_container {
+  width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  .card_title {
+    font-weight: bold;
+    text-align: left;
+  }
+  .article {
+    display: flex;
+    text-align: left;
+    .article_card {
+      background: #ffffff;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      margin: 10px;
+      height: 250px;
+    }
+    .title {
+      font-weight: bold;
+      padding: 10px;
+      margin-bottom: -10px;
+    }
+    .image {
+      width: 100%;
+    }
+    .description {
+      padding: 10px;
+    }
+  }
+}
+

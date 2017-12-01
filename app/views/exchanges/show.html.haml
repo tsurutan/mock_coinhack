@@ -45,6 +45,17 @@
         - @exchanges.each do |exchange|
           %li.list{:href => exchange.slug}
             %div
-              = image_tag exchange.icon_image.url, :class => 'icon'
+              = image_tag exchange.icon_image.url, :class => 'coin_icon'
               %p.coin_title
                 = exchange.name
+  .article_container
+    %p.card_title
+      = @exchange.name + "に関する記事"
+    .article
+      - [1, 2, 3, 4].each do |exchange|
+        %div.article_card
+          = image_tag 'bitcoinjpjj', :class => 'image'
+          %p.title
+            = @exchange.name
+          %p.description
+            = @exchange.overview

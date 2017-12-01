@@ -8,7 +8,6 @@ module V1
   end
 
   class Exchanges < Grape::API
-    # helpers RequestHelper
     resource 'ticker', desc: 'Ticker', swagger: {nested: false} do
       desc 'Tickerの取得', {
           entity: TickerEntity,
@@ -16,6 +15,11 @@ module V1
       }
       get do
         Ticker.callApi(Exchange.find(params['id']))
+      end
+    end
+    resource 'coin_history', desc: 'Ticker', swagger: {nested: false} do
+      get do
+        CryptoCompareCoinHistory.getTimeAndClose(params['time_type'])
       end
     end
   end
