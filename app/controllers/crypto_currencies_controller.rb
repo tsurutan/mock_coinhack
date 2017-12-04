@@ -3,7 +3,7 @@ class CryptoCurrenciesController < InheritedResources::Base
   def show
     @crypto_currency = CryptoCurrency.friendly.find(params[:id])
     @crypto_currencies = CryptoCurrency.all
-    gon.crypto_currency_id = @crypto_currency.id
+    gon.crypto_currency_symbol = @crypto_currency.symbol
   end
 
   private

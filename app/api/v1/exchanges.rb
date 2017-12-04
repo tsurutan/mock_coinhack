@@ -8,18 +8,20 @@ module V1
   end
 
   class Exchanges < Grape::API
+
     resource 'ticker', desc: 'Ticker', swagger: {nested: false} do
       desc 'Tickerの取得', {
           entity: TickerEntity,
           response: {isArray: true, entity: TickerEntity}
       }
       get do
-        Ticker.callApi(Exchange.find(params['id']))
+        TickerApi.callApi(Exchange.find(params['id']))
       end
     end
     resource 'coin_history', desc: 'Ticker', swagger: {nested: false} do
       get do
-        CryptoCompareCoinHistory.getTimeAndClose(params['time_type'])
+        crypto_compare_coin_history = CryptoCompareCoinHistory.new(params['symbol'], params['time_type'])
+        crypto_compare_coin_history.getTimeAndClose
       end
     end
   end

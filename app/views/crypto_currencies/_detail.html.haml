@@ -1,24 +1,25 @@
-%h1.title 取引タイプ
 %table
   %tbody
     %tr
-      %th マーケット
-      %th 出来高(24H)
-      %th Bid
+      %th 略称
+      %th 購入可能通貨
+      %th 公開日
     %tr
-      %td.market BTC/JPY
-      %td.volume
-      %td.bid
-%h1.title その他
-%table
-  %tbody
+      %td
+        = @crypto_currency.symbol
+      %td
+        = @crypto_currency.purchasable_currency
+      %td
+        = @crypto_currency.released_at.nil? ? '-' : @crypto_currency.released_at
     %tr
-      %th マーケット
-      %th 出来高(24H)
-      %th Bid
+      %th ホワイトペーパー
+      %th ブログ
+      %th
     %tr
-      %td.market BTC/JPY
-      %td.volume
-      %td.bid
+      %td
+        = @crypto_currency.white_paper.empty? ? '-' : @crypto_currency.white_paper
+      %td
+        = @crypto_currency.blog.empty? ? '-' : @crypto_currency.blog
+      %td
 %p.description
   = @crypto_currency.description

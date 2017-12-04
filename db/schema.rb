@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171126085235) do
+ActiveRecord::Schema.define(version: 20171201122823) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -110,6 +110,17 @@ ActiveRecord::Schema.define(version: 20171126085235) do
     t.datetime "updated_at", null: false
     t.index ["crypto_currency_id"], name: "index_relation_exchange_crypto_currencies_on_crypto_currency_id"
     t.index ["exchange_id"], name: "index_relation_exchange_crypto_currencies_on_exchange_id"
+  end
+
+  create_table "tickers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "exchange_id"
+    t.string "url"
+    t.string "volume"
+    t.string "bid"
+    t.string "ask"
+    t.string "market"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "relation_exchange_crypto_currencies", "crypto_currencies"

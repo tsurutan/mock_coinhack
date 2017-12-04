@@ -11,7 +11,7 @@ $ ->
       url: '/v1/coin_history'
       type: 'GET'
       data:
-        id: gon.crypto_currency_id
+        symbol: gon.crypto_currency_symbol
         time_type: time_type
       dataType: 'json'
       success: (data, dataType) ->
@@ -55,11 +55,11 @@ $ ->
     return
 
   displayCart = (labels, data) ->
-    ctx = $('#myChart')[0].getContext '2d'
-    gradient = ctx.createLinearGradient(0, 0, 0, 400)
+    context = $('#myChart')[0].getContext '2d'
+    gradient = context.createLinearGradient(0, 0, 0, 400)
     gradient.addColorStop 1, 'rgba(250, 217, 97, 1)'
     gradient.addColorStop 0, 'rgba(250, 217, 97, 0)'
-    chart = new Chart(ctx,
+    chart = new Chart(context,
       type: 'line'
       data:
         labels: labels
@@ -75,7 +75,34 @@ $ ->
           display: false
         elements:
           point:
-            radius: 0
+            radius: 1
+        scales:
+          xAxes:
+            [{
+              gridLines:
+                display: false
+            }]
+        tooltips:
+          intersect: false
       })
+    chart.clear()
     return
+
+    resetCanvas = ->
+      $('#myChart').remove()
+      # this is my <canvas> element
+      $('#graph-container').append '<canvas id="myChart"><canvas>'
+      canvas = document.querySelector('#results-graph')
+      # why use jQuery?
+      ctx = canvas.getContext('2d')
+      ctx.canvas.width = $('#graph').width()
+      # resize to parent width
+      ctx.canvas.height = $('#graph').height()
+      # resize to parent height
+      x = canvas.width / 2
+      y = canvas.height / 2
+      ctx.font = '10pt Verdana'
+      ctx.textAlign = 'center'
+      ctx.fillText 'This text is centered on the canvas', x, y
+      return
   return

@@ -26,11 +26,11 @@
       %ul.tab
         %li.select 詳細
         %li ICO
-        %li 取扱通貨
+        %li 取扱取引所
       %ul.content
         %div.main
           = render 'detail'
-        %div.main
+        %div.main.hide
           = render 'ico'
         %div.main.hide
           = render 'crypto_currency'
@@ -44,14 +44,14 @@
       %ul
         .card_border
         - @crypto_currencies.each do |crypto_currency|
-          %li.list{:href => crypto_currency.slug}
+          %li.list{:href => crypto_currency.slug, :tabindex => "0"}
             %div
               = image_tag crypto_currency.icon_image.url, :class => 'coin_icon'
               %p.coin_title
                 = crypto_currency.name
   .article_container
     %p.card_title
-      = @crypto_currency.name + "に関する記事"
+      = "#{@crypto_currency.name}に関する記事"
     .article
       - [1, 2, 3, 4].each do |crypto_currency|
         %div.article_card

@@ -4,6 +4,7 @@ class Exchange < ApplicationRecord
 
   has_many :crypto_currencies, through: :relation_exchange_crypto_currencies
   has_many :relation_exchange_crypto_currencies
+  has_many :ticker
 
   has_attached_file :icon_image,
                     :styles      => { :medium => "400x400>", :thumb => "100x100>" },
@@ -14,5 +15,9 @@ class Exchange < ApplicationRecord
 
   def crypto_currencies
     CryptoCurrency.find(relation_exchange_crypto_currencies.map {|relation| relation.crypto_currency_id})
+  end
+
+  def tickers
+    Ticker.find(ticker.ids)
   end
 end

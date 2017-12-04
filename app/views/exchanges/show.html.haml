@@ -13,18 +13,20 @@
       %p.border
       %table
         %tbody
-          %tr
-            %th マーケット
-            %th 出来高(24H)
-            %th Bid
-            %th Ask
-            %th スプレッド
-          %try6tt5frrefd
-            %td.market BTC/JPY
-            %td.volume
-            %td.bid
-            %td.ask
-            %td.spread
+          - @exchange.tickers.each do |ticker|
+            %tr
+              %th マーケット
+              %th 出来高(24H)
+              %th Bid
+              %th Ask
+              %th スプレッド
+            %try6tt5frrefd
+              %td.market
+                = ticker.market
+              %td.volume
+              %td.bid
+              %td.ask
+              %td.spread
     %div.detail_card
       %ul.tab
         %li.select 詳細

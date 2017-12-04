@@ -1,28 +1,40 @@
 class CryptoCompareCoinHistory
+  attr_accessor :coin_history, :symbol, :coin_history_info
+
+  CoinHistoryInfo = Struct.new(:endpoint, :format) do
+    def getUrl(symbol)
+      return "https://min-api.cryptocompare.com#{endpoint}?fsym=#{symbol}&tsym=JPY&limit=30"
+    end
+  end
+
+  COIN_HISTORY_INFO_MINUTE = CoinHistoryInfo.new('/data/histominute', '%H:%M')
+  COIN_HISTORY_INFO_HOUR= CoinHistoryInfo.new('/data/histohour', '%d-%H')
+  COIN_HISTORY_INFO_DAY = CoinHistoryInfo.new('/data/histoday', '%m/%d')
 
 
-  # enum status: {minute: 'histominute', hour: 'histohour', day: 'histoday'}
-
-  attr_accessor :coin_history, :url
-
-  FORMAT = {
-      'minute' => '%H:%M',
-      'hour' => '%d-%H',
-      'day' => '%m/%d',
+  COIN_HISTORY_INFOS = {
+      'minute' => COIN_HISTORY_INFO_MINUTE,
+      'hour' => COIN_HISTORY_INFO_HOUR,
+      'day' => COIN_HISTORY_INFO_DAY,
   }
 
-  def self.getCoinHistories(time_type)
+  def initialize(symbol, time_type)
+    self.symbol = symbol
+    self.coin_history_info = COIN_HISTORY_INFOS[time_type]
+  end
 
-    crypto_compare_time_type_url = ''
-    case time_type
-      when 'minute' then
-        crypto_compare_time_type_url = 'histominute'
-      when 'hour' then
-        crypto_compare_time_type_url = 'histohour'
-      when 'day' then
-        crypto_compare_time_type_url = 'histoday'
+  def getTimeAndClose
+    times = []
+    prices = []
+    getCoinHistories().each do |coinHistory|
+      times.push(Time.at(coinHistory.time).strftime(coin_history_info.format))
+      prices.push(coinHistory.close)
     end
-    url = 'https://min-api.cryptocompare.com/data/' + crypto_compare_time_type_url + '?fsym=BTC&tsym=USD&limit=100&aggregate=3&e=CCCAGG'
+    return times, prices
+  end
+
+  def getCoinHistories
+    url = coin_history_info.getUrl(symbol)
     uri = URI.parse(url)
     json = Net::HTTP.get(uri)
     result = JSON.parse(json)
@@ -32,16 +44,5 @@ class CryptoCompareCoinHistory
       coin_histories.push(coin_history)
     end
     return coin_histories
-  end
-
-  def self.getTimeAndClose(time_type)
-    times = []
-    prices = []
-    getCoinHistories(time_type).each do |coinHistory|
-      p coinHistory
-      times.push(Time.at(coinHistory.time).strftime(FORMAT[time_type]))
-      prices.push(coinHistory.close)
-    end
-    return times, prices
   end
 end

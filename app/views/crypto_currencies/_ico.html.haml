@@ -1,0 +1,23 @@
+%table
+  %tbody
+    %tr
+      %th 資金調達額
+      %th 初値
+      %th プラットフォーム
+    %tr
+      %td
+        = @crypto_currency.fund_raised_amount.empty? ? '-' : @crypto_currency.fund_raised_amount
+      %td
+        = @crypto_currency.initial_price.empty? ? '-' : @crypto_currency.initial_price
+      %td
+        = @crypto_currency.platform.empty? ? '-' : @crypto_currency.platform
+    %tr
+      %th トークン発行上限
+      %th トークンセール供給量
+      %th
+    %tr
+      %td
+        = @crypto_currency.white_paper.empty? ? '-' : @crypto_currency.white_paper
+      %td
+        = @crypto_currency.blog.empty? ? '-' : @crypto_currency.blog
+      %td

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exchange_id: 1
+  url: MyString
+  volume: MyString
+  bid: MyString
+  ask: MyString
+
+two:
+  exchange_id: 1
+  url: MyString
+  volume: MyString
+  bid: MyString
+  ask: MyString
