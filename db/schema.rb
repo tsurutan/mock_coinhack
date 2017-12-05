@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201122823) do
+ActiveRecord::Schema.define(version: 20171205050639) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20171201122823) do
     t.datetime "icon_image_updated_at"
     t.string "key_name"
     t.string "slug"
+    t.float "bitcoin_transaction_fee", limit: 24
     t.index ["slug"], name: "index_exchanges_on_slug"
   end
 

@@ -31,6 +31,7 @@ $ ->
     $(this).addClass 'selected'
     $('.compare_spinner').show()
     $('#myChart').hide()
+    resetCanvas()
     callCoinHistoryApi(time_type)
 
   setText = (selector, text) ->
@@ -38,6 +39,18 @@ $ ->
 
   $ ->
     callCoinHistoryApi('minute')
+    return
+
+  resetCanvas = ->
+    $('#myChart').remove()
+    # this is my <canvas> element
+    $('.chart_container').append '<canvas id="myChart"><canvas>'
+    canvas = document.querySelector('#myChart')
+    # why use jQuery?
+    ctx = canvas.getContext('2d')
+    ctx.canvas.width = $('#myChart').width()
+    # resize to parent width
+    ctx.canvas.height = $('#myChart').height()
     return
 
   $ ->
@@ -87,22 +100,4 @@ $ ->
       })
     chart.clear()
     return
-
-    resetCanvas = ->
-      $('#myChart').remove()
-      # this is my <canvas> element
-      $('#graph-container').append '<canvas id="myChart"><canvas>'
-      canvas = document.querySelector('#results-graph')
-      # why use jQuery?
-      ctx = canvas.getContext('2d')
-      ctx.canvas.width = $('#graph').width()
-      # resize to parent width
-      ctx.canvas.height = $('#graph').height()
-      # resize to parent height
-      x = canvas.width / 2
-      y = canvas.height / 2
-      ctx.font = '10pt Verdana'
-      ctx.textAlign = 'center'
-      ctx.fillText 'This text is centered on the canvas', x, y
-      return
   return
