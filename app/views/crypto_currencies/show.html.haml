@@ -55,7 +55,7 @@
     .article
       - [1, 2, 3, 4].each do |crypto_currency|
         %div.article_card
-          = image_tag 'bitcoinjpjj', :class => 'image'
+          = image_tag image_url('bitcoinjpjj'), :class => 'image'
           %p.title
             = @crypto_currency.name
           %p.description
