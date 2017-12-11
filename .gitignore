@@ -14,6 +14,7 @@ vendor/bundle
 !/log/.keep
 /tmp
 dump.rdb
+/public/system/*
 
 # Ignore other unnecessary files.
 .DS_Store
